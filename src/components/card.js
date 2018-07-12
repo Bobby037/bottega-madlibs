@@ -21,8 +21,13 @@ class Card extends Component {
     }
 
     render() {
+        
         return (
-            <input/>
+            <div className="card">
+                <h1>{this.state.color}</h1>
+                <input/>
+            </div>
+
         )
 
         return (
