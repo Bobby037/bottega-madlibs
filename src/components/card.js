@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Input from './input'
+import Input from './input';
+import Content from './content';
 
 class Card extends Component {
 
@@ -23,26 +24,23 @@ class Card extends Component {
             adjectiveFour: '',
             nounThree: '',
             celebFour: '',
-            adjectiveFive: '',
+            adjectiveFive: ''
 
         }
 
-       this.handleInputChange = this.handleInputChange.bind(this);
-    }
+        this.handleInputChange = this.handleInputChange.bind(this);
+    } 
 
-    
     handleInputChange(event) {
         this.setState({ [event.target.name]: event.target.value })
-       console.log(this.state);
     }
-    
 
     render() {
-        
+
         const inputData = [
             {title: 'Color', state: this.state.color, name: 'color'},
             {title: 'Plural Noun', state: this.state.pluralNoun, name: 'pluralNoun'},
-            {title: 'Adjective', state: this.state.adjective, name: 'adjectiveOne'},
+            {title: 'Adjective', state: this.state.adjectiveOne, name: 'adjectiveOne'},
             {title: 'Celebrity', state: this.state.celebOne, name: 'celebOne'},
 
             {title: 'Adjective', state: this.state.adjectiveTwo, name: 'adjectiveTwo'},
@@ -58,16 +56,15 @@ class Card extends Component {
             {title: 'Adjective', state: this.state.adjectiveFour, name: 'adjectiveFour'},
             {title: 'Noun', state: this.state.nounThree, name: 'nounThree'},
             {title: 'Celebrity', state: this.state.celebFour, name: 'celebFour'},
-            {title: 'adjective', state: this.state.adjectiveFive, name: 'adjectiveFive'},
+            {title: 'Adjective', state: this.state.adjectiveFive, name: 'adjectiveFive'},
         ]
 
         return (
             <div className="card">
-            {
-                inputData.map(data => Input((data), this.handleInputChange))
-            }
-
-                
+                {
+                    inputData.map(data => Input( (data), this.handleInputChange ))
+                }
+                <Content data={this.state}/>
             </div>
         )
     }
